@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WorshipSongs</string>
+    <string name="music_heart">music_heart</string>
 </resources>
