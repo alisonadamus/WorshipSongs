@@ -5,54 +5,72 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCE7FF"
+    android:background="?attr/colorSecondary"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="305dp"
-        android:layout_height="197dp"
-        android:elegantTextHeight="true"
-        android:fontFamily="@font/indie_flower"
-        android:freezesText="false"
-        android:text="@string/nc_worship_songs"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#813FFD"
-        android:textCursorDrawable="@android:drawable/stat_sys_headset"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:flow_horizontalAlign="center"
-        app:flow_verticalAlign="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainRect"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="329dp"
-        android:layout_height="57dp"
-        android:spinnerMode="dialog"
-        android:textAlignment="center"
-        android:textDirection="firstStrongRtl"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="273dp"
-        android:layout_height="211dp"
-        android:layout_marginBottom="76dp"
-        android:contentDescription="@string/music_heart"
+        <!--android:layout_width="0dp"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <!-- Вставка ImageView ADD -->
+        <ImageView
+           android:id="@+id/imageAdd"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:contentDescription="@string/music_heart"
+           android:src="@drawable/add"
+            android:layout_weight="0.5"/>
+
+        <!-- Вставка TextView -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/indie_flower"
+            android:text="@string/nc_worship_songs"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:textSize="14pt"
+            android:textStyle="bold"
+            android:layout_weight="3"/>
+
+
+
+        <!-- Вставка ImageView LIGHT/DARK MODE-->
+        <ImageView
+            android:id="@+id/imageChangeMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/light_off"
+            android:src="@drawable/light_off"
+            android:layout_weight="0.5"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ListView
+        android:id="@+id/songsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/mainRect"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/music_heart" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
