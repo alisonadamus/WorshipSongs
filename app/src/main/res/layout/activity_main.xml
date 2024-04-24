@@ -8,20 +8,21 @@
     android:background="?attr/colorSecondary"
     tools:context=".MainActivity">
 
+    <!--CardView, щоб можна було налаштовувати закруглені кути і + вставляти в нього елементи-->
     <androidx.cardview.widget.CardView
         android:id="@+id/mainRect"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        app:cardCornerRadius="16dp"
+        android:layout_height="110dp"
+        app:cardCornerRadius="15dp"
         app:cardElevation="4dp"
+        android:layout_marginTop="30dp"
         android:background="?attr/colorOnPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <!--android:layout_width="0dp"-->
-
+        <!--Горизонтальне розміщення елементів-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,10 +47,9 @@
             android:textAllCaps="true"
             android:textColor="?attr/colorPrimary"
             android:textAlignment="center"
-            android:textSize="14pt"
+            android:textSize="12pt"
             android:textStyle="bold"
             android:layout_weight="3"/>
-
 
 
         <!-- Вставка ImageView LIGHT/DARK MODE-->
@@ -65,16 +65,54 @@
 
      </androidx.cardview.widget.CardView>
 
+
+    <!--Для вертикального розташування елементів один за одним (зокрема для списку)-->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainRect">
 
-    <ListView
+        <!-- Для горизонтального розташування елементів (іконка пошуку і поле для введення тексту)-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+
+        <ImageView
+            android:id="@+id/searchImage"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:contentDescription="@string/search"
+            android:src="@drawable/search"
+            />
+
+        <EditText
+            android:id="@+id/searchSongEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:drawableBottom="?attr/colorPrimary"
+            android:fontFamily="@font/indie_flower"
+            android:hint="@string/searchSongEditText"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:onClick="searchSongs"
+            android:padding="12dp"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/searchImage" />
+    </LinearLayout>
+
+        <ListView
         android:id="@+id/songsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,40 +121,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainRect"-->
-
-
-<!--
-
-     </androidx.cardview.widget.CardView>
-
-     <androidx.cardview.widget.CardView
-         android:id="@+id/listStyle"
-         android:layout_width="0dp"
-         android:layout_height="0dp"
-         app:cardCornerRadius="16dp"
-         app:cardElevation="4dp"
-         android:background="?attr/colorSecondary"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/mainRect"
-        >
-
-     <ListView
-         android:id="@+id/songsList"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-          />
-         &lt;!&ndash;android:layout_width="0dp"
-         android:layout_height="0dp"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/mainRect"&ndash;&gt;
- -->
-
